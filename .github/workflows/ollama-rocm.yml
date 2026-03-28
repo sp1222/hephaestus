@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'ollama-rocm/gfx.1010.Dockerfile'
+      - 'ollama-rocm/gfx-1010/Dockerfile'
   workflow_dispatch:
 
 env:
