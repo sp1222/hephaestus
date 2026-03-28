@@ -1,0 +1,22 @@
+services:
+  ollama-gfx-1010:
+    image: ghcr.io/sp1222/ollama-rocm:latest
+    container_name: ollama-rocm
+    restart: unless-stopped
+    devices:
+      - /dev/kfd
+      - /dev/dri
+    group_add:
+      - video
+      - render
+    volumes:
+      - ollama-models:/root/.ollama
+      - ollama-rocm-cache:/root/.cache
+    ports:
+      - "11434:11434"
+
+volumes:
+  ollama-models:
+    external: true
+  ollama-rocm-cache:
+    external: true
