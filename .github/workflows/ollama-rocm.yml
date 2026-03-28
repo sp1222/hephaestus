@@ -26,7 +26,7 @@ jobs:
       - name: Extract Ollama version from Dockerfile
         id: ollama_version
         run: |
-          VERSION=$(grep '^FROM ollama/ollama:' ollama-rocm/gfx.1010.Dockerfile \
+          VERSION=$(grep '^FROM ollama/ollama:' ollama-rocm/gfx-1010/Dockerfile \
             | sed 's/FROM ollama\/ollama:\(.*\)-rocm/\1/')
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Detected Ollama version: $VERSION"
@@ -52,7 +52,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./ollama-rocm
-          file: ./ollama-rocm/gfx.1010.Dockerfile
+          file: ./ollama-rocm/gfx-1010/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
