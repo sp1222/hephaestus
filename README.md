@@ -1,6 +1,6 @@
-# hephaestus
+# Hephaestus
 
-Container image factory mostly for my homelab use or experimentations, builds and publishes images to ghcr.io via GitHub Actions.
+Container image factory mostly for my homelab use or experimentations. Hephaestus builds and publishes images to ghcr.io via GitHub Actions.
 
 ## Images
 
