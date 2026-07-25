@@ -4,7 +4,7 @@ Custom Ollama image with AMD ROCm support for the RX 5700 XT (gfx1010).
 
 **Image:** `ghcr.io/sp1222/ollama-rocm-gfx-1010:latest`
 
-#### Background
+## Background
 
 The RX 5700 XT requires several workarounds to run inference with ROCm and Ollama:
 
@@ -21,7 +21,7 @@ The RX 5700 XT requires several workarounds to run inference with ROCm and Ollam
 
 5. **HSA_ENABLE_SDMA=0** — Disables SDMA to prevent memory transfer issues.
 
-#### Usage
+## Usage
 ```bash
 docker run -d \
   --name ollama-rocm-gfx-1010 \
@@ -36,7 +36,7 @@ docker run -d \
   ghcr.io/sp1222/ollama-rocm-gfx-1010:latest
 ```
 
-#### Hardware
+## Hardware
 
 | Component | Details |
 |-----------|---------|
@@ -45,7 +45,7 @@ docker run -d \
 | Host OS | Ubuntu 24.04.4 LTS |
 | Kernel | 6.17.0 HWE |
 
-#### Environment Variables
+## Environment Variables
 
 | Variable | Value | Purpose |
 |----------|-------|---------|
@@ -56,3 +56,10 @@ docker run -d \
 | `GPU_MAX_HEAP_SIZE` | `100` | Full VRAM heap |
 | `GPU_MAX_ALLOC_PERCENT` | `100` | Full VRAM allocation |
 | `GPU_SINGLE_ALLOC_PERCENT` | `100` | Full single allocation |
+
+## Build
+
+To update to a new Ollama release:
+1. Check [ollama/ollama releases](https://github.com/ollama/ollama/releases) for new ROCm tags
+2. Update `FROM ollama/ollama:X.XX.X-rocm` in the relevant Dockerfile
+3. Push to `main` — the workflow will build and push automatically
