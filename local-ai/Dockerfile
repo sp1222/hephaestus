@@ -1,4 +1,4 @@
-FROM localai/localai@sha256:9d789d7aa61d08095f7697556076c950a3dcd53b17beed96ebdfab5dabdfb8b6
+FROM localai/localai@sha256:d78cd113b2bc5892d7533c1356e9c9725bb90e86a075356a63730f3d681ce4d7
 
 # Add Node.js so `npx`-based MCP servers (e.g. @modelcontextprotocol/server-github)
 # can run as stdio subprocesses. See LocalAI docs: "MCP and adding packages."
