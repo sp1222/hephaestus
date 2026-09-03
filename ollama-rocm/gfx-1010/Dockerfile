@@ -1,4 +1,4 @@
-FROM ollama/ollama:0.18.2-rocm
+FROM ollama/ollama:0.33.3-rocm
 
 # RX 5700 XT (gfx1010) ROCm workarounds
 # Override HSA for supported RDNA 1.0 GFX version
