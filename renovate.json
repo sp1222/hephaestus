@@ -1,9 +1,28 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-"config:recommended"
+    "config:recommended",
+    ":dependencyDashboard",
+    ":prHourlyLimitNone",
+    ":prConcurrentLimitNone"
   ],
+  "labels": [
+    "dependencies"
+  ],
+  "schedule": [
+    "before 9am on Monday"
+  ],
+  "stabilityDays": 7,
   "dockerfile": {
     "enabled": true
-  }
+  },
+  "prBodyDefinitions": {
+    "Change": "### What changed\n- {{depName}}: {{currentVersion}} -> {{newVersion}}\n- {{#if isPin}}Pinned to a specific version/digest to reduce drift.{{else}}Updated to the latest available release in this repo.{{/if}}\n",
+    "Confidence": "### Confidence\n- Patch or digest updates: high confidence\n- Minor updates: moderate confidence\n- Major version updates: low confidence until the relevant CI job and image build pass\n"
+  },
+  "prBodyNotes": [
+    "### Verification",
+    "- CI should confirm the affected image still builds successfully.",
+    "- For the LocalAI image, a quick runtime check such as `npx --version` should still work after the image is built."
+  ]
 }
