@@ -1,4 +1,4 @@
-FROM node:20-bookworm-slim AS node-base
+FROM node:24-bookworm-slim AS node-base
 
 FROM localai/localai@sha256:9d789d7aa61d08095f7697556076c950a3dcd53b17beed96ebdfab5dabdfb8b6
 
